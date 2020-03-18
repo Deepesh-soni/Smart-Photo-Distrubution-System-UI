@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>
+     <title>Score Board</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Bellota+Text&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script type="text/javascript">
+     $(document).ready(function () {
+          //initialize
+          var runs=0;
+          var overs=0;
+          var balls=0;
+          var wickets=0;
+          $('#run').html(runs);
+          $('#over').html(overs);
+          $('#ball').html(balls);
+          $('#wicket').html(wickets);
+
+
+          //runs now
+          $('#oneRun').click(function() {
+               runs=runs+1;
+               $('#run').html(runs);
+          });
+          $('#tworuns').click(function() {
+               runs=runs+2;
+               $('#run').html(runs);
+          });
+          $('#threeRuns').click(function() {
+               runs=runs+3;
+               $('#run').html(runs);
+          });
+          $('#fourRuns').click(function() {
+               runs=runs+4;
+               $('#run').html(runs);
+          });
+          $('#sixRuns').click(function() {
+               runs=runs+6;
+               $('#run').html(runs);
+          });
+
+
+          //balls now
+          $('#wide').click(function() {
+               runs=runs+1;
+               $('#run').html(runs);
+          });
+          $('#noball').click(function() {
+               runs=runs+1;
+               $('#run').html(runs);
+          });
+          $('#oneball').click(function() {
+               balls=balls+1;
+               if(balls===6)
+               {
+                    overs++;
+                    $('#over').html(overs);                 
+                    balls=0;
+                    $('#ball').html(balls);
+               }
+               else{
+                    $('#ball').html(balls);
+               }
+               
+          });
+
+          // out now
+          $('#out').click(function() {
+               wickets++;
+               $('#wicket').html(wickets);
+          });
+
+     });
+     
+     </script>
+     <style>
+          .design{
+               font-size: 40px;
+               font-weight: 600;
+               display : flex;
+               justify-content: center;
+               align-items: center;
+               font-family: 'Bellota Text', cursive;
+          }
+          label{
+               padding: 50px;
+               color:#6f0075;
+          }
+          body{
+               background: #d192f0;
+          }
+          .btn{
+               display: inline-block;
+               margin : 20px;
+          }
+          .allButtons{
+               text-align: center;                     
+          }
+          .heading{
+               font-size: 40px;
+               font-size: 70px;
+               font-family: Anton;
+               color: #0A689B;
+          }
+          #runs{
+               font-size: 40px;             
+          }
+          #overs{
+               font-size: 40px;        
+          }
+          .big{
+               font-size: 100px;
+               font-weight: 800;
+          }
+     </style>
+</head>
+<body>
+     <div class="design"><label class="heading">THIS INNINGS SCORE</label></div>
+     <div id="scoreBoard" class="row design">
+          <div id="runs" class="design">
+               <label>Current Score : </label>
+               <label class="big" id="run">105</label>&nbsp;<p style="color:#6f0075;">for</p>&nbsp;<label class="big" id="wicket">2</label>
+          </div>
+          <div id="overs" class="design">
+               <label>Overs : </label>
+               <label class="big" id="over">6</label><b>.</b><label class="big" id="ball">2</label>
+          </div>
+     </div>
+     <div class="allButtons">
+          <div>
+               <button type="button" class="btn btn-warning btn-lg" id="oneRun">1 Run</button>
+               <button type="button" class="btn btn-warning btn-lg" id="twoRuns">2 Runs</button>
+               <button type="button" class="btn btn-warning btn-lg" id="threeRuns">3 runs</button>
+               <button type="button" class="btn btn-warning btn-lg" id="fourRuns">4 runs</button>
+               <button type="button" class="btn btn-warning btn-lg" id="sixRuns">6 runs</button>
+               <button type="button" class="btn btn-danger btn-lg" id="out">Out</button>
+          </div><br>
+          <div>
+               <button type="button" class="btn btn-success btn-lg" id="wide">Wide Ball</button>
+               <button type="button" class="btn btn-success btn-lg" id="noball">No ball</button>
+               <button type="button" class="btn btn-success btn-lg" id="oneball">One ball</button>
+          </div>
+     </div>
+</body>
+</html>
